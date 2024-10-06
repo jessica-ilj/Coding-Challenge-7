@@ -71,4 +71,16 @@ const calculateDepartmentSalary = (department)=> {
     
     }
     
+    // Function to Calculate the Total Salary for All Departments
+    function calculateCompanySalary(company) {
+        let totalSalary = 0;
+      
+        
+        for (let department of company.departments) { // Iterate through each department in the company
+          totalSalary += calculateDepartmentSalary(department); // Add the salary of the entire department
+        }
+      
+        return totalSalary;
+      }
     
+    console.log("total salary for entrire company:", calculateCompanySalary(company))
