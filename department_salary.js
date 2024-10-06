@@ -52,3 +52,23 @@ const company = {  //stores the departments in the company with different object
         }
     ]
 };
+
+//Recursive Function to Calculate Total Salary for a Department
+const calculateDepartmentSalary = (department)=> { 
+    let departmentSalary = 0;
+    
+    for (let employee of department.employees){  //accepts a department object and recursively calculates the total salary for that department, including the salaries of all employees and their subordinates.
+        departmentSalary += employee.salary // adding each employee’s salary to the total
+        if (employee.subordinates.length >0) {
+            for (let subordinate of employee.subordinates){
+    departmentSalary+= subordinate.salary
+    
+            }
+        }
+    }
+    console.log(departmentSalary);
+    return departmentSalary;
+    
+    }
+    
+    
